@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtFoodName = new System.Windows.Forms.TextBox();
-            this.dgvFood = new System.Windows.Forms.DataGridView();
+            this.dgvFoodAdmin = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFoodId = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,26 +68,26 @@
             this.txtFoodName.Size = new System.Drawing.Size(237, 22);
             this.txtFoodName.TabIndex = 1;
             // 
-            // dgvFood
+            // dgvFoodAdmin
             // 
-            this.dgvFood.AllowUserToAddRows = false;
-            this.dgvFood.AllowUserToDeleteRows = false;
-            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFoodAdmin.AllowUserToAddRows = false;
+            this.dgvFoodAdmin.AllowUserToDeleteRows = false;
+            this.dgvFoodAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoodAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvFood.Location = new System.Drawing.Point(338, 82);
-            this.dgvFood.Name = "dgvFood";
-            this.dgvFood.ReadOnly = true;
-            this.dgvFood.RowHeadersVisible = false;
-            this.dgvFood.RowHeadersWidth = 51;
-            this.dgvFood.RowTemplate.Height = 24;
-            this.dgvFood.Size = new System.Drawing.Size(629, 285);
-            this.dgvFood.TabIndex = 2;
-            this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellClick);
+            this.dgvFoodAdmin.Location = new System.Drawing.Point(338, 82);
+            this.dgvFoodAdmin.Name = "dgvFoodAdmin";
+            this.dgvFoodAdmin.ReadOnly = true;
+            this.dgvFoodAdmin.RowHeadersVisible = false;
+            this.dgvFoodAdmin.RowHeadersWidth = 51;
+            this.dgvFoodAdmin.RowTemplate.Height = 24;
+            this.dgvFoodAdmin.Size = new System.Drawing.Size(629, 285);
+            this.dgvFoodAdmin.TabIndex = 2;
+            this.dgvFoodAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellClick);
             // 
             // Column1
             // 
@@ -249,7 +249,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvFood);
+            this.Controls.Add(this.dgvFoodAdmin);
             this.Controls.Add(this.txtFoodDescription);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtFoodPlace);
@@ -262,9 +262,9 @@
             this.Controls.Add(this.txtFoodName);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +274,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFoodName;
-        private System.Windows.Forms.DataGridView dgvFood;
+        private System.Windows.Forms.DataGridView dgvFoodAdmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

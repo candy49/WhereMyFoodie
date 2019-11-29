@@ -44,14 +44,14 @@ namespace WhereMyFoodie
             conn.Open();
             if (conn.State == ConnectionState.Open)
             {
-                MessageBox.Show("Welcome");
+                MessageBox.Show("Welcome Admin");
                 ShowDGV();
             }
         }
 
         private void ShowDGV()
         {
-            dgvFood.Rows.Clear();
+            dgvFoodAdmin.Rows.Clear();
             sql = "select * from foods";
             cmd = new MySqlCommand(sql, conn);
             adapter = new MySqlDataAdapter(cmd);
@@ -59,12 +59,12 @@ namespace WhereMyFoodie
             adapter.Fill(dst, "foods");
             for (int i = 0; i < dst.Tables["foods"].Rows.Count; i++)
             {
-                dgvFood.Rows.Add(1);
-                dgvFood.Rows[i].Cells[0].Value = dst.Tables["foods"].Rows[i][0].ToString();
-                dgvFood.Rows[i].Cells[1].Value = dst.Tables["foods"].Rows[i][1].ToString();
-                dgvFood.Rows[i].Cells[2].Value = dst.Tables["foods"].Rows[i][2].ToString();
-                dgvFood.Rows[i].Cells[3].Value = dst.Tables["foods"].Rows[i][3].ToString();
-                dgvFood.Rows[i].Cells[4].Value = dst.Tables["foods"].Rows[i][4].ToString();
+                dgvFoodAdmin.Rows.Add(1);
+                dgvFoodAdmin.Rows[i].Cells[0].Value = dst.Tables["foods"].Rows[i][0].ToString();
+                dgvFoodAdmin.Rows[i].Cells[1].Value = dst.Tables["foods"].Rows[i][1].ToString();
+                dgvFoodAdmin.Rows[i].Cells[2].Value = dst.Tables["foods"].Rows[i][2].ToString();
+                dgvFoodAdmin.Rows[i].Cells[3].Value = dst.Tables["foods"].Rows[i][3].ToString();
+                dgvFoodAdmin.Rows[i].Cells[4].Value = dst.Tables["foods"].Rows[i][4].ToString();
             }
         }
 
@@ -112,7 +112,7 @@ namespace WhereMyFoodie
 
         private void DGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DGV_CellClick(dgvFood, e.RowIndex );
+            DGV_CellClick(dgvFoodAdmin, e.RowIndex );
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -134,10 +134,7 @@ namespace WhereMyFoodie
         private bool isEmpty()
         {
             bool empty = false;
-            if (string.IsNullOrEmpty(txtFoodId.Text))
-            {
-                empty = true;
-            }
+            
             if (string.IsNullOrEmpty(txtFoodName.Text))
             {
                 empty = true;
