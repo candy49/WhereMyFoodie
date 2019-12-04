@@ -49,6 +49,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFoodId = new System.Windows.Forms.TextBox();
+            this.comboTypeAdmin = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodAdmin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,12 +218,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(539, 47);
+            this.btnSearch.Location = new System.Drawing.Point(663, 48);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label5
             // 
@@ -240,11 +242,26 @@
             this.txtFoodId.Size = new System.Drawing.Size(237, 22);
             this.txtFoodId.TabIndex = 1;
             // 
+            // comboTypeAdmin
+            // 
+            this.comboTypeAdmin.FormattingEnabled = true;
+            this.comboTypeAdmin.Items.AddRange(new object[] {
+            "id",
+            "name",
+            "place",
+            "source"});
+            this.comboTypeAdmin.Location = new System.Drawing.Point(539, 47);
+            this.comboTypeAdmin.Name = "comboTypeAdmin";
+            this.comboTypeAdmin.Size = new System.Drawing.Size(118, 24);
+            this.comboTypeAdmin.TabIndex = 6;
+            this.comboTypeAdmin.Text = "select category";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 400);
+            this.Controls.Add(this.comboTypeAdmin);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -293,6 +310,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFoodId;
+        private System.Windows.Forms.ComboBox comboTypeAdmin;
     }
 }
 

@@ -56,6 +56,12 @@ namespace WhereMyFoodie
 
             if (comboType.SelectedItem == "id")
             {
+                var isNumeric = int.TryParse(txtSearchUser.Text, out int n);
+                if (!isNumeric)
+                {
+                    MessageBox.Show("Invalid ID");
+                    return;
+                }
                 sql = "select * from foods where foodId like '" + Convert.ToInt32(txtSearchUser.Text) + "'";
             } else if (comboType.SelectedItem == "name")
             {
@@ -66,6 +72,10 @@ namespace WhereMyFoodie
             } else if (comboType.SelectedItem == "place")
             {
                 sql = "select * from foods where foodPlace like '" + txtSearchUser.Text + "'";
+            } else
+            {
+                MessageBox.Show("Invalid Category");
+                return;
             }
 
             cmd = new MySqlCommand(sql, conn);

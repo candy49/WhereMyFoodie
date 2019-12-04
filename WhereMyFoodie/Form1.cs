@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using System.Diagnostics;
 
 namespace WhereMyFoodie
 {
@@ -28,11 +29,7 @@ namespace WhereMyFoodie
         #endregion
         public Form1()
         {
-            ///TODO: add validation before input, check ada isi atau engga.
-            ///bagaimana cara pindah ke form lain
-            ///form pertama itu form user, lalu ada tombol untuk ke form admin, untuk insert data
-            ///form user itu cuman bisa search, searchnya bisa pake type, ada dropdown list
-            ///form admin itu buat insert data punya
+            ///TODO:
             ///buat table lagi, dimana isinya foodSource, 
             InitializeComponent();
         }
@@ -151,7 +148,73 @@ namespace WhereMyFoodie
             {
                 empty = true;
             }
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                empty = true;
+            }
             return empty;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine(comboTypeAdmin.SelectedItem);
+            dgvFoodAdmin.Rows.Clear();
+
+            if (comboTypeAdmin.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select search category");
+                return;
+            }
+
+            if (comboTypeAdmin.SelectedItem == "id")
+            {
+                var isNumeric = int.TryParse(txtSearch.Text, out int n);
+                if (!isNumeric)
+                {
+                    MessageBox.Show("Invalid ID");
+                    return;
+                }
+                sql = "select * from foods where foodId like '" + Convert.ToInt32(txtSearch.Text) + "'";
+            }
+            else if (comboTypeAdmin.SelectedItem == "name")
+            {
+                sql = "select * from foods where foodName like '" + txtSearch.Text + "'";
+            }
+            else if (comboTypeAdmin.SelectedItem == "source")
+            {
+                sql = "select * from foods where foodSource like '" + txtSearch.Text + "'";
+            }
+            else if (comboTypeAdmin.SelectedItem == "place")
+            {
+                sql = "select * from foods where foodPlace like '" + txtSearch.Text + "'";
+            }
+            else
+            {
+                MessageBox.Show("Invalid Category");
+                return;
+            }
+
+            cmd = new MySqlCommand(sql, conn);
+            adapter = new MySqlDataAdapter(cmd);
+            dst = new DataSet();
+            adapter.Fill(dst, "foods");
+
+            Debug.WriteLine("jumlah yg didapat", dst.Tables["foods"].Rows.Count);
+
+            if (dst.Tables["foods"].Rows.Count == 0)
+            {
+                MessageBox.Show(txtSearch.Text + " not found in " + comboTypeAdmin.SelectedItem);
+            }
+
+            for (int i = 0; i < dst.Tables["foods"].Rows.Count; i++)
+            {
+                dgvFoodAdmin.Rows.Add(1);
+                dgvFoodAdmin.Rows[i].Cells[0].Value = dst.Tables["foods"].Rows[i][0].ToString();
+                dgvFoodAdmin.Rows[i].Cells[1].Value = dst.Tables["foods"].Rows[i][1].ToString();
+                dgvFoodAdmin.Rows[i].Cells[2].Value = dst.Tables["foods"].Rows[i][2].ToString();
+                dgvFoodAdmin.Rows[i].Cells[3].Value = dst.Tables["foods"].Rows[i][3].ToString();
+                dgvFoodAdmin.Rows[i].Cells[4].Value = dst.Tables["foods"].Rows[i][4].ToString();
+            }
         }
     }
 }
