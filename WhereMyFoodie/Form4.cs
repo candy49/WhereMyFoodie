@@ -19,6 +19,7 @@ namespace WhereMyFoodie
 
         private void btnUser_Click(object sender, EventArgs e)
         {
+            //test
             Form2 userForm = new Form2();
             userForm.Show();
         }
