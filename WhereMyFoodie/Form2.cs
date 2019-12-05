@@ -45,8 +45,6 @@ namespace WhereMyFoodie
 
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(comboType.SelectedItem);
-            //dgvFoodUser.Rows.Clear();
 
             if (comboType.SelectedIndex == -1)
             {
@@ -82,8 +80,6 @@ namespace WhereMyFoodie
             adapter = new MySqlDataAdapter(cmd);
             dst = new DataSet();
             adapter.Fill(dst, "foods");
-
-            Debug.WriteLine(dst.Tables["foods"].Rows.Count);
 
             if (dst.Tables["foods"].Rows.Count == 0)
             {
