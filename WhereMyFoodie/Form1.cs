@@ -216,5 +216,10 @@ namespace WhereMyFoodie
                 dgvFoodAdmin.Rows[i].Cells[4].Value = dst.Tables["foods"].Rows[i][4].ToString();
             }
         }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            ShowDGV();
+        }
     }
 }

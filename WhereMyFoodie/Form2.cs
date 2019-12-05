@@ -106,5 +106,29 @@ namespace WhereMyFoodie
             Form3 adminForm = new Form3();
             adminForm.Show();
         }
+
+        private void ShowDGV()
+        {
+            dgvFoodUser.Rows.Clear();
+            sql = "select * from foods";
+            cmd = new MySqlCommand(sql, conn);
+            adapter = new MySqlDataAdapter(cmd);
+            dst = new DataSet();
+            adapter.Fill(dst, "foods");
+            for (int i = 0; i < dst.Tables["foods"].Rows.Count; i++)
+            {
+                dgvFoodUser.Rows.Add(1);
+                dgvFoodUser.Rows[i].Cells[0].Value = dst.Tables["foods"].Rows[i][0].ToString();
+                dgvFoodUser.Rows[i].Cells[1].Value = dst.Tables["foods"].Rows[i][1].ToString();
+                dgvFoodUser.Rows[i].Cells[2].Value = dst.Tables["foods"].Rows[i][2].ToString();
+                dgvFoodUser.Rows[i].Cells[3].Value = dst.Tables["foods"].Rows[i][3].ToString();
+                dgvFoodUser.Rows[i].Cells[4].Value = dst.Tables["foods"].Rows[i][4].ToString();
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            ShowDGV();
+        }
     }
 }

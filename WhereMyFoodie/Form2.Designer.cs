@@ -39,6 +39,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboType = new System.Windows.Forms.ComboBox();
             this.btnGoToAdmin = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodUser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,10 +153,21 @@
             this.btnGoToAdmin.UseVisualStyleBackColor = true;
             this.btnGoToAdmin.Click += new System.EventHandler(this.btnGoToAdmin_Click_1);
             // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(502, 45);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btnShowAll.TabIndex = 7;
+            this.btnShowAll.Text = "show all";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(691, 403);
+            this.Controls.Add(this.btnShowAll);
             this.Controls.Add(this.btnGoToAdmin);
             this.Controls.Add(this.comboType);
             this.Controls.Add(this.dgvFoodUser);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ComboBox comboType;
         private System.Windows.Forms.Button btnGoToAdmin;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }

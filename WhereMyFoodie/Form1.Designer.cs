@@ -50,6 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtFoodId = new System.Windows.Forms.TextBox();
             this.comboTypeAdmin = new System.Windows.Forms.ComboBox();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodAdmin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,11 +257,22 @@
             this.comboTypeAdmin.TabIndex = 6;
             this.comboTypeAdmin.Text = "select category";
             // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(892, 48);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btnShowAll.TabIndex = 7;
+            this.btnShowAll.Text = "show all";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 400);
+            this.Controls.Add(this.btnShowAll);
             this.Controls.Add(this.comboTypeAdmin);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
@@ -311,6 +323,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFoodId;
         private System.Windows.Forms.ComboBox comboTypeAdmin;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }
 
